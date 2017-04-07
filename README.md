@@ -1,1 +1,1 @@
-# raytracing samples
+# raytracing
