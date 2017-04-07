@@ -12,6 +12,8 @@ namespace RayTracing
         {
             PPMMap map = new PPMMap(10, 10);
             map.Save("raytracing.ppm");
+            Console.WriteLine("done.");
+            Console.ReadKey();
         }
     }
 }

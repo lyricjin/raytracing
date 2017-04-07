@@ -46,7 +46,7 @@ namespace RayTracing
             for (int i = 0; i < _data.Length; i++)
             {
                 Vector3 vec = _data[i];
-                sw.Write("" + 255 + "\t" + vec.Y + "\t" + vec.Z + "\n");
+                sw.Write("" + vec.X + "\t" + vec.Y + "\t" + 255 + "\n");
             }
             sw.Flush();
             sw.Close();
