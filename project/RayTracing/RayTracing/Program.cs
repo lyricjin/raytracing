@@ -10,7 +10,8 @@ namespace RayTracing
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("done.");
+            PPMMap map = new PPMMap(10, 10);
+            map.Save("raytracing.ppm");
         }
     }
 }
