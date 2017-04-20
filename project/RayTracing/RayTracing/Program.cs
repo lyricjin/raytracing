@@ -11,11 +11,11 @@ namespace RayTracing
         static void Main(string[] args)
         {
             PPMMap map = new PPMMap(400, 200);
-            for (int i = 0; i < map.Height; i++)
+            for (int row = 0; row < map.Height; row++)
             {
-                for (int j = 0; j < map.Width; j++)
+                for (int col = 0; col < map.Width; col++)
                 {
-                    map.SetColor(j, i, new Vector3(0, 255 * j / map.Width, 0));
+                    map.SetColor(col, row, new Vector3(255 * col / map.Width, 255 * row / map.Height, 0));
                 }
             }
             map.Save("raytracing.ppm");
