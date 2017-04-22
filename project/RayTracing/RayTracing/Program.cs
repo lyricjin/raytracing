@@ -10,8 +10,10 @@ namespace RayTracing
     {
         static Vector3 GetColor(Ray ray)
         {
-            Vector3 color = 255 * ray.Direction.Abs();
-            return color.IntValue();
+            Vector3 color = new Vector3((int)(255 * Math.Abs(ray.Direction.X)),
+                                        (int)(255 * Math.Abs(ray.Direction.Y)),
+                                        (int)(255 * Math.Abs(ray.Direction.Z)));
+            return color;
         }
 
         static void Main(string[] args)

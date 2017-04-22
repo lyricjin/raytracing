@@ -360,16 +360,6 @@ namespace RayTracing
             sb.Append("}");
             return sb.ToString();
         }
-
-        public Vector3 Abs()
-        {
-            return new Vector3(Math.Abs(this.X), Math.Abs(this.Y), Math.Abs(this.Z));
-        }
-
-        public Vector3 IntValue()
-        {
-            return new Vector3((int)(this.X), (int)(this.Y), (int)(this.Z));
-        }
         #endregion Public methods
 
 

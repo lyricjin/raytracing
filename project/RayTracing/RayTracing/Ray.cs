@@ -14,8 +14,8 @@ namespace RayTracing
         public Ray(Vector3 origin, Vector3 direction)
         {
             Origin = origin;
+            direction.Normalize();
             Direction = direction;
-            Direction.Normalize();
         }
 
         public Vector3 PointAtDistance(float distance)
