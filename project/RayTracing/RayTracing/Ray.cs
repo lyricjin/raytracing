@@ -10,12 +10,14 @@ namespace RayTracing
     {
         public Vector3 Origin { get; }
         public Vector3 Direction { get; }
+        public Vector3 NomalizedDirection { get; }
 
         public Ray(Vector3 origin, Vector3 direction)
         {
             Origin = origin;
-            direction.Normalize();
             Direction = direction;
+            direction.Normalize();
+            NomalizedDirection = direction;
         }
 
         public Vector3 PointAtDistance(float distance)

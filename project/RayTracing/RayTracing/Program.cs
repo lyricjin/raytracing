@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RayTracing
 {
@@ -10,9 +6,10 @@ namespace RayTracing
     {
         static Vector3 GetColor(Ray ray)
         {
-            Vector3 color = new Vector3((int)(255 * Math.Abs(ray.Direction.X)),
-                                        (int)(255 * Math.Abs(ray.Direction.Y)),
-                                        (int)(255 * Math.Abs(ray.Direction.Z)));
+            double t = 0.5 * (ray.Direction.Y + 1.0);
+            Vector3 color = (1.0 - t) * (new Vector3(1.0 * 255, 1.0 * 255, 1.0 * 255)) +
+                                    t * new Vector3(0.5 * 255, 0.7 * 255, 1.0 * 255);
+            color = new Vector3((int)color.X, (int)color.Y, (int)color.Z);
             return color;
         }
 
