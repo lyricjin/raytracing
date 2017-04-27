@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="GameObject\GameWorld.cs" />
+    <Compile Include="GameObject\Hitable.cs" />
+    <Compile Include="GameObject\Sphere.cs" />
     <Compile Include="PPMMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
