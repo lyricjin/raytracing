@@ -17,8 +17,13 @@ namespace RayTracing
 
         static Vector3 GetColor(Hitable world, Ray ray)
         {
-            if(world.Hit(ray).IsHited)
-                return new Vector3(1.0, 0, 0);
+            HitResult result = world.Hit(ray);
+            Vector3 normal = result.Normal;
+            if (result.IsHited)
+                return new Vector3(0.5f * (normal.X + 1),
+                                   0.5f * (normal.Y + 1),
+                                   0.5f * (normal.Z + 1));
+
             return GetSkyColor(ray);
         }
 
@@ -36,7 +41,7 @@ namespace RayTracing
                 for (int col = 0; col < map.Width; col++)
                 {
                     Ray ray = camera.GetRay((double)col / map.Width, (double)row / map.Height);
-//                    map.SetColor(col, row, GetColor(world, ray));
+                    //                    map.SetColor(col, row, GetColor(world, ray));
                     map.SetColor(col, row, GetColor(sphere, ray));
                 }
             }
