@@ -8,13 +8,13 @@ namespace RayTracing.GameObject
 {
     class HitResult
     {
-        public bool Available;
+        public bool IsHited;
         public Vector3 HitPoint;
         public Vector3 Normal;
 
-        public HitResult(bool available, Vector3 hitPoint, Vector3 normal)
+        public HitResult(bool isHited, Vector3 hitPoint, Vector3 normal)
         {
-            Available = available;
+            IsHited = isHited;
             HitPoint = hitPoint;
             Normal = normal;
         }

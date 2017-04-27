@@ -46,7 +46,9 @@ namespace RayTracing
             for (int i = 0; i < _data.Length; i++)
             {
                 Vector3 vec = _data[i];
-                sw.Write("" + vec.X + "\t" + vec.Y + "\t" + vec.Z + "\n");
+                sw.Write("" + (int)(vec.X * 255) + "\t" + 
+                              (int)(vec.Y * 255) + "\t" + 
+                              (int)(vec.Z * 255) + "\n");
             }
             sw.Flush();
             sw.Close();
@@ -56,7 +58,6 @@ namespace RayTracing
         public void SetColor(int x, int y, Vector3 color)
         {
             int length = y * _width + x;
-//            Console.WriteLine("x: " + x + ", y: " + y + ", length: " + length);
             _data[length] = Vector3.Zero + color;
         }
     }
