@@ -27,9 +27,21 @@ namespace RayTracing.GameObject
 
         public override HitResult Hit(Ray ray)
         {
+            HitResult result = HitResult.UnHited;
             for (int i = 0; i < _spheres.Count; i++)
-                Console.WriteLine("sphere: " + _spheres[i].GetHashCode());
-            return null;
+            {
+                HitResult r = _spheres[i].Hit(ray);
+                if (r.IsHited == true)
+                {
+                    if (result.IsHited == false)
+                        result = r;
+                    else if(result.Length >= r.Length)
+                    {
+                        result = r;
+                    }
+                }
+            }
+            return result;
         }
     }
 }

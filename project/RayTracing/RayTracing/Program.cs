@@ -6,15 +6,6 @@ namespace RayTracing
 {
     class Program
     {
-        static Vector3 GetSkyColor(Ray ray)
-        {
-            double t = 0.5 * (ray.Direction.Y + 1.0);
-            Vector3 color = (1.0 - t) * (new Vector3(1.0, 1.0, 1.0)) +
-                                    t * new Vector3(0.5, 0.7, 1.0);
-            color = new Vector3(color.X, color.Y, color.Z);
-            return color;
-        }
-
         static Vector3 GetColor(Hitable world, Ray ray)
         {
             HitResult result = world.Hit(ray);
@@ -24,25 +15,29 @@ namespace RayTracing
                                    0.5f * (normal.Y + 1),
                                    0.5f * (normal.Z + 1));
 
-            return GetSkyColor(ray);
+            return Camera.GetSkyColor(ray);
         }
 
+        public static Camera Camera = new Camera(10f, 42f);
         static void Main(string[] args)
         {
-            Camera camera = new Camera(4f, 2f, 2f);
-
             GameWorld world = new GameWorld();
-            Sphere sphere = new Sphere(new Vector3(0, 0, -2.0), 0.5);
-            world.AddSphere(sphere);
+            Sphere sphere1 = new Sphere(new Vector3(0, 0, 6f), 0.5f);
+            Sphere sphere2 = new Sphere(new Vector3(-1.7, 1.4, 4.5), 0.5f);
+            Sphere sphere3 = new Sphere(new Vector3(3.1, -0.5, 6f), 0.5f);
+            Sphere sphereBig = new Sphere(new Vector3(0, -100, 6f), 99.5f);
+            world.AddSphere(sphere1);
+            world.AddSphere(sphere2);
+            world.AddSphere(sphere3);
+            world.AddSphere(sphereBig);
 
-            PPMMap map = new PPMMap(400, 200);
+            PPMMap map = new PPMMap(480, 270);
             for (int row = 0; row < map.Height; row++)
             {
                 for (int col = 0; col < map.Width; col++)
                 {
-                    Ray ray = camera.GetRay((double)col / map.Width, (double)row / map.Height);
-                    //                    map.SetColor(col, row, GetColor(world, ray));
-                    map.SetColor(col, row, GetColor(sphere, ray));
+                    Ray ray = Camera.GetRay((double)col / map.Width, (double)row / map.Height);
+                    map.SetColor(col, row, GetColor(world, ray));
                 }
             }
             map.Save("raytracing.ppm");

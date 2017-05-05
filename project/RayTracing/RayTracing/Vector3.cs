@@ -440,6 +440,10 @@ namespace RayTracing
             return value;
         }
 
+        public static Vector3 Abs(Vector3 value)
+        {
+            return new Vector3(Math.Abs(value.X), Math.Abs(value.Y), Math.Abs(value.Z));
+        }
         #endregion
     }
 }

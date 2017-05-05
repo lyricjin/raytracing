@@ -8,7 +8,6 @@ namespace RayTracing.GameObject
 {
     class Sphere : Hitable
     {
-        static HitResult _unHited = new HitResult(false, Vector3.Zero, Vector3.Zero);
         private Vector3 _center;
         private double _radius;
 
@@ -29,13 +28,13 @@ namespace RayTracing.GameObject
             double cosAngle = Vector3.Dot(rayToCenterNormalized, ray.NomalizedDirection);
             // cos 值 > 0 ，才有机会相交
             if (cosAngle <= 0)
-                return _unHited;
+                return HitResult.UnHited;
 
             // ray 和 center 的距离
             double height = rayToCenter.Length() * Math.Sqrt(1 - cosAngle * cosAngle);
             // 距离超过半径，则不相交
             if (height > _radius)
-                return _unHited;
+                return HitResult.UnHited;
 
             // 求解最近的交点就是射中的点，normal则更是容易算了
             double totalLength = rayToCenter.Length() * cosAngle;
@@ -44,7 +43,7 @@ namespace RayTracing.GameObject
             Vector3 hitPoint = ray.Origin + ray.NomalizedDirection * outSphereLength;
             Vector3 normal = hitPoint - _center;
             normal.Normalize();
-            return new HitResult(true, hitPoint, normal);
+            return new HitResult(true, outSphereLength, hitPoint, normal);
         }
 
         public static void Test()
