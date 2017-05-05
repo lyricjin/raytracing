@@ -47,6 +47,9 @@
     <Compile Include="GameObject\GameWorld.cs" />
     <Compile Include="GameObject\Hitable.cs" />
     <Compile Include="GameObject\Sphere.cs" />
+    <Compile Include="Material\MatDiffuse.cs" />
+    <Compile Include="Material\Material.cs" />
+    <Compile Include="Material\MatMetal.cs" />
     <Compile Include="PPMMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
