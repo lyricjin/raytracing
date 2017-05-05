@@ -8,6 +8,7 @@ namespace RayTracing
 {
     class Ray
     {
+        public static Ray Default = new Ray(Vector3.Zero, Vector3.Forward);
         public Vector3 Origin { get; }
         public Vector3 Direction { get; }
         public Vector3 NomalizedDirection { get; }

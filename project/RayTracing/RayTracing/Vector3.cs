@@ -17,10 +17,10 @@ namespace RayTracing
         private static Vector3 unitZ = new Vector3(0f, 0f, 1f);
         private static Vector3 up = new Vector3(0f, 1f, 0f);
         private static Vector3 down = new Vector3(0f, -1f, 0f);
-        private static Vector3 right = new Vector3(1f, 0f, 0f);
         private static Vector3 left = new Vector3(-1f, 0f, 0f);
-        private static Vector3 forward = new Vector3(0f, 0f, -1f);
-        private static Vector3 backward = new Vector3(0f, 0f, 1f);
+        private static Vector3 right = new Vector3(1f, 0f, 0f);
+        private static Vector3 forward = new Vector3(0f, 0f, 1f);
+        private static Vector3 backward = new Vector3(0f, 0f, -1f);
 
         #endregion Private Fields
 

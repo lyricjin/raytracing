@@ -17,6 +17,16 @@ namespace RayTracing.GameObject
             _radius = radius;
         }
 
+        public Vector3 GetCenter()
+        {
+            return _center;
+        }
+
+        public double GetRadius()
+        {
+            return _radius;
+        }
+
         public override HitResult Hit(Ray ray)
         {
             Vector3 rayToCenter = _center - ray.Origin;
