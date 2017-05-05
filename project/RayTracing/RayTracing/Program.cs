@@ -31,7 +31,7 @@ namespace RayTracing
             world.AddSphere(sphere3);
             world.AddSphere(sphereBig);
 
-            PPMMap map = new PPMMap(480, 270);
+            PPMMap map = new PPMMap(960, 540);
             for (int row = 0; row < map.Height; row++)
             {
                 for (int col = 0; col < map.Width; col++)
